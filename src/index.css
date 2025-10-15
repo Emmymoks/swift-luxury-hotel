@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Custom styles */
+body { @apply bg-white text-gray-800; }
+.luxury-gradient {
+  background: linear-gradient(135deg, rgba(201,163,74,0.10), rgba(17,24,39,0.03));
+}
+
+:root{
+  --accent-1: #d1a054; /* warm gold */
+  --accent-2: #111827; /* charcoal */
+}
+
+.btn-modern{
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium shadow-md;
+  background: linear-gradient(90deg, rgba(209,160,84,0.12), rgba(209,160,84,0.18));
+  color: var(--accent-2);
+  border: 1px solid rgba(17,24,39,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.btn-modern:hover{ transform: translateY(-3px); box-shadow: 0 8px 24px rgba(17,24,39,0.08);} 
+
+.card-modern{ @apply bg-white rounded-xl shadow-lg }
+
+/* Modern nav link: subtle lift + animated underline */
+.nav-link{
+  position: relative;
+  color: inherit;
+  transition: transform .18s ease, color .18s ease;
+}
+.nav-link:hover{ transform: translateY(-3px); color: var(--accent-2); }
+.nav-link::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent-1), rgba(209,160,84,0.6));
+  transition: width .22s ease;
+  border-radius: 2px;
+}
+.nav-link:hover::after{ width: 100%; }
+
+/* Accent (gold) button variant */
+.btn-accent{
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium shadow-md;
+  background: linear-gradient(90deg, var(--accent-1), #f3dba1);
+  color: white;
+  border: 1px solid rgba(17,24,39,0.06);
+  transition: transform .18s ease, box-shadow .18s ease, opacity .12s ease;
+}
+.btn-accent:hover{ transform: translateY(-3px); box-shadow: 0 10px 30px rgba(209,160,84,0.12); }
+
+/* Dark button variant for primary actions */
+.btn-dark{
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-full font-medium;
+  background: #111827;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+.btn-dark:hover{ transform: translateY(-3px); box-shadow: 0 8px 20px rgba(17,24,39,0.25); }
