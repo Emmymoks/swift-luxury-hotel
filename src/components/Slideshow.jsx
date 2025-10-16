@@ -55,7 +55,7 @@ export default function Slideshow({className=''}){
           animate={{opacity:1, x:0}}
           exit={{opacity:0, x:-20}}
           transition={{duration:0.6}}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover motion-accelerate"
         />
       </AnimatePresence>
 
