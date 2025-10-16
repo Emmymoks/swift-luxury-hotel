@@ -24,7 +24,7 @@ export default function Home(){
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
           {featured.map(r=> (
             <div key={r.id + r.img} className="bg-white rounded-lg overflow-hidden shadow">
-              <img src={r.img} alt={r.name} className="w-full h-40 object-cover"/>
+                <img src={r.img} alt={r.name} loading="lazy" decoding="async" className="w-full h-40 object-cover"/>
               <div className="p-3 flex items-center justify-center">
                 <button onClick={()=>navigate(`/rooms/${r.id}`)} className="btn-modern">View</button>
               </div>
