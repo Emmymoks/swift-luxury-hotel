@@ -24,7 +24,7 @@ export default function About(){
 
           {/* Responsive image: sits in second column on md+, stacks on small screens */}
           <div className="rounded-lg overflow-hidden shadow-lg">
-            <img src={images[0]} alt="hotel interior" className="w-full h-80 object-cover md:h-full md:min-h-[320px]" />
+            <img src={images[0]} alt="hotel interior" loading="lazy" decoding="async" className="w-full h-80 object-cover md:h-full md:min-h-[320px]" />
           </div>
         </div>
       </div>
