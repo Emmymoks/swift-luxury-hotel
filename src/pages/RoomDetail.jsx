@@ -10,7 +10,7 @@ export default function RoomDetail(){
     <section className="pt-8">
       <div className="max-w-5xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8">
         <div>
-          <img src={room.img} alt={room.name} className="w-full h-96 object-cover rounded-lg shadow"/>
+          <img src={room.img} alt={room.name} loading="lazy" decoding="async" className="w-full h-96 object-cover rounded-lg shadow"/>
         </div>
         <div>
           <h2 className="font-heading text-3xl">{room.name}</h2>
