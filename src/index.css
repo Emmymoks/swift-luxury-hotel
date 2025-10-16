@@ -62,3 +62,11 @@ body { @apply bg-white text-gray-800; }
   transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
 }
 .btn-dark:hover{ transform: translateY(-3px); box-shadow: 0 8px 20px rgba(17,24,39,0.25); }
+
+/* Hint to the browser for smoother transform/opacity animations */
+.motion-accelerate{
+  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
