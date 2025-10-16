@@ -40,7 +40,7 @@ export default function Gallery(){
       <div className="hidden md:grid md:grid-cols-4 gap-4">
         {images.map((src,i)=>(
           <div key={i} className="rounded-lg overflow-hidden shadow">
-            <img src={src} alt={`gallery-${i}`} className="w-full h-48 object-cover"/>
+            <img src={src} alt={`gallery-${i}`} loading="lazy" decoding="async" className="w-full h-48 object-cover"/>
           </div>
         ))}
       </div>
@@ -53,7 +53,7 @@ export default function Gallery(){
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
-          <img src={images[index]} alt={`gallery-${index}`} className="w-full h-full object-cover" />
+          <img src={images[index]} alt={`gallery-${index}`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
 
           {/* left / right controls (small and subtle) */}
           <button
