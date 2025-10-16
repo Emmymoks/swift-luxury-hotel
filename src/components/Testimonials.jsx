@@ -30,6 +30,7 @@ export default function Testimonials(){
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
   const timerRef = useRef(null)
+  const touch = useRef({startX:0, startY:0, moved:false})
 
   useEffect(()=>{
     if(paused) return
@@ -49,6 +50,29 @@ export default function Testimonials(){
     setIndex(i=> (i + 1) % sampleReviews.length)
   }
 
+  function onTouchStart(e){
+    const t = e.touches[0]
+    touch.current.startX = t.clientX
+    touch.current.startY = t.clientY
+    touch.current.moved = false
+  }
+
+  function onTouchMove(e){
+    touch.current.moved = true
+  }
+
+  function onTouchEnd(e){
+    if(!touch.current.moved) return
+    const t = (e.changedTouches && e.changedTouches[0]) || e.touches[0]
+    if(!t) return
+    const dx = t.clientX - touch.current.startX
+    const dy = t.clientY - touch.current.startY
+    if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)){
+      if(dx > 0) prev()
+      else next()
+    }
+  }
+
   return (
     <section className="max-w-7xl mx-auto px-6 py-16">
       <div className="text-center mb-8">
@@ -58,7 +82,11 @@ export default function Testimonials(){
 
       <div className="relative mx-auto max-w-2xl">
         {/* fixed height container to avoid layout shift */}
-        <div className="relative h-40">
+        <div className="relative h-40"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={sampleReviews[index].id}
