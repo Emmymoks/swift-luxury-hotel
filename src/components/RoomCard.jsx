@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 export default function RoomCard({room}) {
   const navigate = useNavigate()
   return (
-      <motion.div whileHover={{scale:1.01}} className="card-modern overflow-hidden">
+  <motion.div whileHover={{scale:1.01}} className="card-modern overflow-hidden motion-accelerate">
   <img src={room.img} alt={room.name} loading="lazy" decoding="async" className="w-full h-48 object-cover"/>
       <div className="p-4">
         <h3 className="font-semibold">{room.name}</h3>
