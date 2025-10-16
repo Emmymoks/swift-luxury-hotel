@@ -94,7 +94,7 @@ export default function Testimonials(){
               animate={{opacity:1, y:0}}
               exit={{opacity:0, y:-10}}
               transition={{duration:0.6}}
-              className="absolute inset-0 bg-white shadow rounded-lg p-6 flex flex-col justify-center"
+              className="absolute inset-0 bg-white shadow rounded-lg p-6 flex flex-col justify-center motion-accelerate"
               onMouseEnter={()=>setPaused(true)}
               onMouseLeave={()=>setPaused(false)}
             >
